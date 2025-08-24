@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.isaacer.mvc.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root )
+
+
 
   // suspend fonksşyonlarını direkt çağıramassın.Coroutine içinde çağırman gerekir.
         CoroutineScope(Dispatchers.IO).launch{
@@ -43,10 +46,11 @@ class MainActivity : AppCompatActivity() {
                     //withContext(Dispatchers.Main) → “şimdi bu kod bloğunu ana thread’de çalıştır” demek.
 
                     if(gelenveri!=null){
-                        val text = gelenveri.joinToString("\n\n") { post ->
-                            "ID: ${post.id}\nTitle: ${post.title}"
-                        }
-                        binding.textView1.text = text
+                        val adapterim = Mvcadapter(gelenveri)
+                        binding.recyclerview.layoutManager = LinearLayoutManager(this@MainActivity)
+                        binding.recyclerview.adapter = adapterim
+
+
                     }
 
 

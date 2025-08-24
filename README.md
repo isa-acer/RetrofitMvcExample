@@ -61,6 +61,12 @@ AndroidManifest.xml içinde internet izni eklenmiş olmalı:
 
 Uygulamayı emülatörde ya da gerçek cihazda çalıştır.
 
+ GÜNCELLENEN ÖZELLİK
+
+ Recycler view eklendi adapter bağlantısı yapıldı.
+ <img width="367" height="785" alt="image" src="https://github.com/user-attachments/assets/021e24f5-31d1-4368-972c-980229b439ed" />
+
+
 👨‍💻 Geliştirici
 
 İsa Acer

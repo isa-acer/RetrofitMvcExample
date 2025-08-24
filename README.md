@@ -3,6 +3,10 @@
 Bu proje, Kotlin + Retrofit + Coroutines kullanılarak yapılmış basit bir Android uygulamasıdır.
 Uygulama, JSONPlaceholder
  API’sinden GET isteği ile veri çeker ve ekranda bir TextView üzerinde gösterir.
+
+
+
+ 
  <img width="330" height="708" alt="image" src="https://github.com/user-attachments/assets/2dfe7761-91ef-4012-bd8f-28938f74b3c1" />
  <img width="350" height="769" alt="image" src="https://github.com/user-attachments/assets/30d2b59b-477c-4ba4-9e67-075c8cf67e31" />
 

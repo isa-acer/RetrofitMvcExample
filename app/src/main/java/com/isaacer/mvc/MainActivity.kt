@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.isaacer.mvc.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -25,9 +26,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root )
 
 
-
+/*
   // suspend fonksşyonlarını direkt çağıramassın.Coroutine içinde çağırman gerekir.
-        CoroutineScope(Dispatchers.IO).launch{
+        CoroutineScope(Dispatchers.IO).launch{//IO (Input/Output) → internetten veri çekme, dosya okuma, veritabanı gibi işleri kapsıyor.
+
 
             //şimdi istediği atacağım
 
@@ -65,6 +67,18 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+        }*/
+
+
+        lifecycleScope.launch {
+            try {
+                val gelenveri = RetrofitInstance.api.getAllUser()
+                val adapterim = Mvcadapter(gelenveri)
+                binding.recyclerview.layoutManager = LinearLayoutManager(this@MainActivity)
+                binding.recyclerview.adapter = adapterim
+            } catch (e: Exception) {
+                Toast.makeText(this@MainActivity, "HATA: ${e.message}", Toast.LENGTH_LONG).show()
+            }
         }
 
 
